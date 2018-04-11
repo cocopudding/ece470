@@ -1,0 +1,13 @@
+function [ H ] = forward( joint, myrobot )
+l1 = myrobot.link{1};
+l2 = myrobot.link{2};
+myrobot.link{1}
+H1 = getA(joint(1), myrobot.link{1}.alpha, myrobot.link{1}.D, myrobot.link(1).A);
+H2 = getA(joint(2), myrobot.link{2}.alpha, myrobot.link{2}.D, myrobot.link{2}.A);
+H3 = getA(joint(3), myrobot.link{3}.alpha, myrobot.link{3}.D, myrobot.link{3}.A);
+H4 = getA(joint(4), myrobot.link{4}.alpha, myrobot.link{4}.D, myrobot.link{4}.A);
+H5 = getA(joint(5), myrobot.link{5}.alpha, myrobot.link{5}.D, myrobot.link{5}.A);
+H6 = getA(joint(6), myrobot.link{6}.alpha, myrobot.link{6}.D, myrobot.link{6}.A);
+H = H1*H2*H3*H4*H5*H6;
+end
+
